@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .sections-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .job-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .linkedin-section .section-title {
+            color: #0077B5;
+        }
+
+        .indeed-section .section-title {
+            color: #003A7B;
+        }
+
+        .buttons-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .job-button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .job-button:hover::before {
+            left: 100%;
+        }
+
+        .linkedin-button {
+            background: linear-gradient(135deg, #0077B5, #005885);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,119,181,0.3);
+        }
+
+        .linkedin-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,119,181,0.4);
+        }
+
+        .indeed-button {
+            background: linear-gradient(135deg, #003A7B, #002A5C);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,58,123,0.3);
+        }
+
+        .indeed-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,58,123,0.4);
+        }
+
+        .job-roles {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .job-roles h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .job-roles ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-roles li {
+            padding: 5px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .job-roles li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .sections-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .job-section {
+                padding: 20px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Job Search Dashboard</h1>
+            <p>Quick access to your job searches on LinkedIn and Indeed</p>
+        </div>
+
+        <div class="sections-container">
+            <!-- LinkedIn Section -->
+            <div class="job-section linkedin-section">
+                <h2 class="section-title">LinkedIn Jobs</h2>
+                <div class="buttons-grid">
+                    <a href="https://www.linkedin.com/jobs/search/?currentJobId=4292017498&geoId=100565514&keywords=data%20analyst&origin=JOB_SEARCH_PAGE_SEARCH_BUTTON&refresh=true" class="job-button linkedin-button" target="_blank" rel="noopener noreferrer">
+                        Data Analyst Positions
+                    </a>
+                    <a href="https://www.linkedin.com/jobs/search/?currentJobId=4289478619&geoId=100565514&keywords=cloud%20data%20engineer&origin=JOB_SEARCH_PAGE_SEARCH_BUTTON&refresh=true" class="job-button linkedin-button" target="_blank" rel="noopener noreferrer">
+                        Cloud Data Engineer
+                    </a>
+                    <a href="https://www.linkedin.com/jobs/search/?currentJobId=4302156800&geoId=100565514&keywords=ETL%20developer&origin=JOB_SEARCH_PAGE_SEARCH_BUTTON&refresh=true" class="job-button linkedin-button" target="_blank" rel="noopener noreferrer">
+                        ETL Developer
+                    </a>
+                </div>
+            </div>
+
+            <!-- Indeed Section -->
+            <div class="job-section indeed-section">
+                <h2 class="section-title">Indeed Jobs</h2>
+                <div class="buttons-grid">
+                    <a href="https://be.indeed.com/jobs?q=Data+Analyst&l=Brussel&radius=100&sort=date&vjk=4449cfa6d0e88d21" class="job-button indeed-button" target="_blank" rel="noopener noreferrer">
+                        Data Analyst Positions
+                    </a>
+                    <a href="https://be.indeed.com/jobs?q=data+engineer&l=Brussel&sort=date&radius=100&from=searchOnDesktopSerp&vjk=fc1b11df5134472a" class="job-button indeed-button" target="_blank" rel="noopener noreferrer">
+                        Cloud Data Engineer
+                    </a>
+                    <a href="https://be.indeed.com/jobs?q=etl%20developer&l=Brussel&radius=100&sort=date" class="job-button indeed-button" target="_blank" rel="noopener noreferrer">
+                        ETL Developer
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Roles Information -->
+        <div class="job-roles">
+            <h3>Target Roles:</h3>
+            <ul>
+                <li>Data Analyst</li>
+                <li>Cloud Data Engineer</li>
+                <li>Data Engineer</li>
+                <li>ETL Developer</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Click any button to open job searches in a new tab</p>
+        </div>
+    </div>
+</body>
+</html>
